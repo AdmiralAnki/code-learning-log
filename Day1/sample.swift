@@ -13,8 +13,27 @@ func showSample(){
 }
 
 func readSTDIN(){
-	let tew = readLine() ?? "No input provided"
-	print("STDIN: \(tew)") 
+
+	while(true){
+		
+		if let line = readLine(){ 
+			print("STDIN: \(line)")
+		}else{
+		 	break
+		}		
+	}
+ 
 }
 
-readSTDIN()
+func addTwoNumbersSTDIN(){
+	if let line = readLine(){
+		if let num  = Int(line.split(separator:" ")[0]),
+		   let num2 = Int(line.split(separator: " ")[1]){
+			print(num+num2)
+		}
+	}
+}
+
+
+addTwoNumbersSTDIN()
+
