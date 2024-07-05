@@ -26,37 +26,48 @@ func addTwoNumbersSTDIN(){
 	}
 }
 
+func addTwoNumbersSTDINApproachTwo(){
+	//an alternative approach can be to have two readlines, then cast the values to Int and proceed
+	if let firstNum = readLine(),
+	let secondNum = readLine(){
+		print("Sum:",(Int(firstNum) ?? 0) + (Int(secondNum) ?? 0))
+	}
+
+}
+
+addTwoNumbersSTDINApproachTwo()
+
 func writeToOutput(){
 
-print("test")
-// standard separator and terminator
-print("test","this","method","again")
+	print("test")
+	// standard separator and terminator
+	print("test","this","method","again")
 
-//custom separator
-print(1,2,3,4,5,separator:"***")
+	//custom separator
+	print(1,2,3,4,5,separator:"***")
 
-//custom teminator
-print("ffff",terminator:"]")
-print("gggg",terminator:"]")
+	//custom teminator
+	print("ffff",terminator:"]")
+	print("gggg",terminator:"]")
 
 }
 
 func writeToTarget(){
 
-var range = "My range: "
-print(1...5, to: &range)
+	var range = "My range: "
+	print(1...5, to: &range)
 
-print(range)
+	print(range)
 
-var separated = ""
-print(1.0, 2.0, 3.0, 4.0, 5.0, separator: " ... ", to: &separated)
+	var separated = ""
+	print(1.0, 2.0, 3.0, 4.0, 5.0, separator: " ... ", to: &separated)
 
-print(separated)
+	print(separated)
 }
 
 /*
-	Swift script to write contents of one file to other. This methods takes the file content from standard input and writes it to standard output. 
-	Both input and output can be give using the following shell command:
+	Swift script to write contents of one file to other(also adds line numbers). This methods takes the file content from standard input and writes it to standard output. 
+	Both input and output can be given using the following shell command:
  	use the cat newTestFile.txt | swift inputAndOutput.swift | >  someNewFile.txt 
 */
 func rewriteFileContent(){
@@ -96,6 +107,10 @@ func copyFileContent(){
 	}
 }
 
+/*
+	This function uses FileHandle class to read bytes from a file asynchronously and then write each line to the destination file
+*/
+
 func copyFileContentO(){
 	if  CommandLine.argc > 1{
 		let sourceFile = CommandLine.arguments[1]
@@ -123,11 +138,4 @@ func copyFileContentO(){
 	}
 }
 
-copyFileContentO()
-extension FileHandle{
-
-func readLine(){
-
-}
-
-}
+// copyFileContentO()
