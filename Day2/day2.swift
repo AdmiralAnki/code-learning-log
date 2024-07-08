@@ -31,7 +31,7 @@ let typeInference = 8 * 0.6
 
 print(typeInference)
 
-//formatting for numeric literals
+//formatting for numeric literals for easy readability
 let paddedDouble = 000123.456
 let oneMillion = 1_000_000
 let justOverOneMillion = 1_000_000.000_000_1
@@ -45,7 +45,6 @@ let twoThousandAndOne = twoThousand + UInt16(one)
 let three = 3
 let pointOneFourOneFiveNine = 0.14159
 let pi = Double(three) + pointOneFourOneFiveNine
-
 // pi equals 3.14159, and is inferred to be of type Double
 
 let anotherPi = 3 + 0.14159
@@ -54,7 +53,8 @@ let anotherPi = 3 + 0.14159
 let integerPi = Int(pi)
 print("Double to int conversion: ",integerPi)
 //The rules for combining numeric constants and variables are different from the rules for numeric literals.
-// The literal value 3 can be added directly to the literal value 0.14159, because number literals don’t have an explicit type in and of themselves. 
+// The literal value 3 can be added directly to the literal value 0.14159,
+// because number literals don’t have an explicit type in and of themselves. 
 //Their type is inferred only at the point that they’re evaluated by the compiler.
 
 

@@ -1,6 +1,8 @@
 import Foundation
-
-func showSample(){
+/**
+	This function checks if there are command line arguments present and prints them.
+*/
+func readFromCommandline(){
 
 	if CommandLine.argc > 1{
 		 for (index,argument) in CommandLine.arguments.enumerated(){
@@ -11,12 +13,19 @@ func showSample(){
 	} 
 }
 
+/**
+	This function read from standard input until program terminates
+*/
+
 func readSTDIN(){	
 	while let line = readLine(){ 
 		print("STDIN: \(line)")	
 	}
 }
 
+/**
+	This function reads from standard input and parses the input String to two integers and then prints the sum
+*/
 func addTwoNumbersSTDIN(){
 	if let line = readLine(){
 		if let num  = Int(line.split(separator:" ")[0]),
@@ -26,8 +35,10 @@ func addTwoNumbersSTDIN(){
 	}
 }
 
-func addTwoNumbersSTDINApproachTwo(){
-	//an alternative approach can be to have two readlines, then cast the values to Int and proceed
+/**
+	This function reads the from standard input two numbers and prints their sum
+*/
+func addTwoNumbersSTDINApproachTwo(){	
 	if let firstNum = readLine(),
 	let secondNum = readLine(){
 		print("Sum:",(Int(firstNum) ?? 0) + (Int(secondNum) ?? 0))
@@ -35,9 +46,10 @@ func addTwoNumbersSTDINApproachTwo(){
 
 }
 
-addTwoNumbersSTDINApproachTwo()
-
-func writeToOutput(){
+/**
+	This function write to standard output, demonstrates some basic capabilites of the print() function
+*/
+func writeToOutput() {
 
 	print("test")
 	// standard separator and terminator
@@ -52,6 +64,9 @@ func writeToOutput(){
 
 }
 
+/**
+	This function demonstrates the print() function that writes the o/p to the given output stream(TextOutputStream)
+*/
 func writeToTarget(){
 
 	var range = "My range: "
@@ -65,10 +80,12 @@ func writeToTarget(){
 	print(separated)
 }
 
-/*
+/**
 	Swift script to write contents of one file to other(also adds line numbers). This methods takes the file content from standard input and writes it to standard output. 
-	Both input and output can be given using the following shell command:
- 	use the cat newTestFile.txt | swift inputAndOutput.swift | >  someNewFile.txt 
+
+	Usage:
+
+	`cat sourceFile.txt | swift inputAndOutput.swift | >  destinationFile.txt `
 */
 func rewriteFileContent(){
 	var lineNumber = 0
@@ -79,7 +96,7 @@ func rewriteFileContent(){
 }
 
 
-/*
+/**
 	Swift script to write contents of one file to other. This methods takes two command line arguments the source file and the destination file.
 	It then uses the string methods to read and write content from the files.	
 */
@@ -121,18 +138,17 @@ func copyFileContentO(){
 		guard let destinationFileHandle = FileHandle(forWritingAtPath: destinationFile) else {print("Couldn't open dest file!");return}
 
 	do{
-			let modifiedLine = "The following content was imported: \n"
-			try destinationFileHandle.write(contentsOf: modifiedLine.data(using: .utf8)!)
+		let modifiedLine = "The following content was imported: \n"
+		try destinationFileHandle.write(contentsOf: modifiedLine.data(using: .utf8)!)
 
-			Task{
-				for try await line in sourceFileHandle.bytes.lines{				
-					try destinationFileHandle.write(contentsOf: line.data(using: .utf8)!)
-				}	
-			}			
+		Task{
+			for try await line in sourceFileHandle.bytes.lines{				
+				try destinationFileHandle.write(contentsOf: line.data(using: .utf8)!)
+			}	
+		}			
 	}catch{
 		print("error: \(error.localizedDescription)")
-	}
-	
+	}	
 	}else{
 		print("invalid input")
 	}
