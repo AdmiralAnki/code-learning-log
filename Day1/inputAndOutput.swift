@@ -59,11 +59,11 @@ func writeToOutput() {
 	print(1,2,3,4,5,separator:"***")
 
 	//custom teminator
-	print("ffff",terminator:"]")
-	print("gggg",terminator:"]")
+	print("[ffff",terminator:"]")
+	print("[gggg",terminator:"]")
 
 }
-
+writeToOutput()
 /**
 	This function demonstrates the print() function that writes the o/p to the given output stream(TextOutputStream)
 */
@@ -79,6 +79,7 @@ func writeToTarget(){
 
 	print(separated)
 }
+writeToTarget()
 
 /**
 	Swift script to write contents of one file to other(also adds line numbers). This methods takes the file content from standard input and writes it to standard output. 
@@ -98,7 +99,11 @@ func rewriteFileContent(){
 
 /**
 	Swift script to write contents of one file to other. This methods takes two command line arguments the source file and the destination file.
-	It then uses the string methods to read and write content from the files.	
+	It then uses the string methods to read and write content from the files.
+
+	Usage:
+
+	`swift inputAndOutput.swift <source-file-name> <destination-file-name>`	
 */
 
 func copyFileContent(){
