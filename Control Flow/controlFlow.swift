@@ -211,3 +211,7 @@ switch num{
         print("default")
 }
 
+let ks = Int(311)
+let fs = Double(23)
+let bol = Bool(true)
+print(fs)
