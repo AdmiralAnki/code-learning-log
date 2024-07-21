@@ -39,7 +39,6 @@ for tickMark in 0..<minutes{ // this is half open range, here the begining of th
 }
 
 
-
 //stride
 let minuteInterval = 5
 for tickMark in stride(from:1, to:minutes, by:minuteInterval){
@@ -141,6 +140,8 @@ default:
 print("There are \(naturalCount) \(countedThings).")
 // Prints "There are dozens of moons orbiting Saturn."
 
+//You can use tuples to test multiple values in the same switch statement.
+// Each element of the tuple can be tested against a different value or interval of value
 let somePoint = (1, 1)
 switch somePoint {
 case (0, 0):
@@ -157,6 +158,8 @@ default:
 // Prints "(1, 1) is inside the box"
 
 //Value binding 
+// A switch case can name the value or values it matches to temporary constants or variables, 
+// for use in the body of the case
 let anotherPoint = (2, 0)
 switch anotherPoint {
 case (let x, 0):
@@ -169,7 +172,6 @@ case let (x, y):
 // Prints "on the x-axis with an x value of 2"
 
 // The example below categorizes an (x, y) point on the following graph:
-
 let yetAnotherPoint = (1, -1)
 switch yetAnotherPoint {
 case let (x, y) where x == y:
@@ -214,4 +216,19 @@ switch num{
 let ks = Int(311)
 let fs = Double(23)
 let bol = Bool(true)
+
 print(fs)
+
+// for index in stride(from:100,to:10,by:-10){
+//     print("index: ",index)
+// }
+
+var power = 100
+repeat{
+    print("power level: ",power)
+    power-=10
+}while (power > 0)
+
+let range = ...5
+print(range)
+print(range.contains(-55))

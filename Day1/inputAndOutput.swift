@@ -10,7 +10,7 @@ func readFromCommandline(){
 		}
 	}else{
 		print("No arguments passed")
-	} 
+	} 	
 }
 
 /**
